@@ -61,18 +61,20 @@ const NewAlbum = () => {
           const id = getUId();
 
           // Determine whether to display the card based on the collapse view
-          if (collapseView && index < 6) {
+          if (collapseView) {
             return (
-              <Grid 
-              style={{ display: collapseView && index < 6 ? "block" : "none" }}
-              item xs={2}>
-                <Card key={id} data={albumItem} type="normal" />
+              <Grid
+                style={{ display: collapseView && index < 6 ? "block" : "none" }}
+                item xs={2}
+                key={id} // Key should be set on the Grid component
+              >
+                <Card data={albumItem} type="normal" />
               </Grid>
             );
           } else if (!collapseView) {
             return (
-              <Grid item xs={2}>
-                <Card key={id} data={albumItem} type="normal" />
+              <Grid item xs={2} key={id}> {/* Key should be set on the Grid component */}
+                <Card data={albumItem} type="normal" />
               </Grid>
             );
           } else {
