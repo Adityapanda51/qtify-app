@@ -63,7 +63,9 @@ const NewAlbum = () => {
           // Determine whether to display the card based on the collapse view
           if (collapseView && index < 6) {
             return (
-              <Grid item xs={2}>
+              <Grid 
+              style={{ display: collapseView && index < 6 ? "block" : "none" }}
+              item xs={2}>
                 <Card key={id} data={albumItem} type="normal" />
               </Grid>
             );
