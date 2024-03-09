@@ -61,15 +61,18 @@ const TopAlbum = () => {
           const id = getUId();
 
           // Determine whether to display the card based on the collapse view
-          if (collapseView && index < 6) {
+          if (collapseView) {
             return (
-              <Grid item xs={2}>
+              <Grid
+                style={{ display: collapseView && index < 6 ? "block" : "none" }}
+                item xs={2}>
                 <Card key={id} data={albumItem} type="normal" />
               </Grid>
             );
           } else if (!collapseView) {
             return (
-              <Grid item xs={2}>
+              <Grid
+                item xs={2}>
                 <Card key={id} data={albumItem} type="normal" />
               </Grid>
             );
@@ -86,3 +89,55 @@ export default TopAlbum;
 
 
 
+// import React, { useEffect, useState } from "react";
+// import { topAlbumData, getUId } from "../AxiosData/AxiosData";
+// import Box from "@mui/material/Box";
+// import Grid from "@mui/material/Grid";
+// import Card from "../Card/Card";
+// import "./TopAlbum.css";
+
+// const TopAlbum = () => {
+//   const [albumData, setAlbumData] = useState([]);
+//   const [collapseView, setCollapseView] = useState(true);
+
+//   useEffect(() => {
+//     const loadHandler = async () => {
+//       try {
+//         const res = await topAlbumData();
+//         setAlbumData(res);
+//       } catch (error) {
+//         console.log("Error fetching top album data:", error);
+//       }
+//     };
+//     loadHandler();
+//   }, []);
+
+//   const handleOnClick = () => {
+//     setCollapseView(!collapseView);
+//   };
+
+//   return (
+//     <Box className="topAlbum">
+//       <div className="topAlbum_static">
+//         <h3>Top Albums</h3>
+//         <button onClick={handleOnClick}>
+//           {collapseView ? `Show all` : `Collapse`}
+//         </button>
+//       </div>
+//       <Grid
+//         container
+//         spacing={2}
+//         style={{ display: collapseView ? "block" : "none" }}
+//         className="topAlbum_cards"
+//       >
+//         {albumData.map((albumItem, index) => (
+//           <Grid item xs={2} key={getUId()}>
+//             <Card data={albumItem} type="normal" />
+//           </Grid>
+//         ))}
+//       </Grid>
+//     </Box>
+//   );
+// };
+
+// export default TopAlbum;
