@@ -88,6 +88,10 @@
 // export default TopAlbum;
 
 
+
+
+
+
 // import React, { useEffect, useState } from "react";
 // import { topAlbumData } from "../AxiosData/AxiosData";
 // import Box from "@mui/material/Box";
@@ -123,19 +127,19 @@
 //           {collapseView ? `Show all` : `Collapse`}
 //         </button>
 //       </div>
-//       {/* Replace Grid with Carousel */}
-//       <Carousel
-//         data={albumData} // Pass album data as prop to Carousel
-//         component={(albumItem) => <Card data={albumItem} type="normal" />} // Pass Card component as component prop to Carousel
-//       />
+//       {!collapseView && ( // Render Carousel only if collapseView is false
+//         <Carousel
+//           data={albumData} // Pass album data as prop to Carousel
+//           component={(albumItem) => (
+//             <Card data={albumItem} type="normal" />
+//           )} // Pass Card component as component prop to Carousel
+//         />
+//       )}
 //     </Box>
 //   );
 // };
 
 // export default TopAlbum;
-
-
-
 
 
 import React, { useEffect, useState } from "react";
@@ -173,18 +177,25 @@ const TopAlbum = () => {
           {collapseView ? `Show all` : `Collapse`}
         </button>
       </div>
-      {!collapseView && ( // Render Carousel only if collapseView is false
+      {collapseView ? (
         <Carousel
           data={albumData} // Pass album data as prop to Carousel
           component={(albumItem) => (
             <Card data={albumItem} type="normal" />
           )} // Pass Card component as component prop to Carousel
         />
+      ) : (
+        <div className="topAlbum_grid">
+          {albumData.map((albumItem) => (
+            <div key={albumItem.id} className="gridItem">
+              <Card data={albumItem} type="normal" />
+            </div>
+          ))}
+        </div>
       )}
     </Box>
   );
 };
 
 export default TopAlbum;
-
 
