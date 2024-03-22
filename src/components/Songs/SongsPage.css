@@ -1,0 +1,57 @@
+/* SongsPage.css */
+
+/* Container for the entire songs section */
+.songs-section.newAlbum {
+    width: 100vw;
+  }
+  
+  /* Static part of the songs section containing the title and tab */
+  .songs-section-static.newAlbum_static {
+    display: flex;
+    align-items: baseline;
+    padding: 12px;
+    justify-content: space-between;
+  }
+  
+  /* Title for the songs section */
+  .newAlbum_title {
+    width: 130px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--white-color);
+  }
+  
+  /* Button for the songs section */
+  .newAlbum_static > button {
+    width: 120px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    border: none;
+  }
+  
+  .newAlbum_static > button:hover {
+    cursor: pointer;
+  }
+  
+  /* Container for the song cards */
+  .newAlbum_cards {
+    display: flex;
+  }
+  
+  /* Grid layout for the song cards */
+  .newAlbum_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  /* Individual grid item */
+  .gridItem {
+    width: 100%;
+  }
+  

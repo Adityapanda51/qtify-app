@@ -4,6 +4,8 @@ import "./Layout.css";
 import Hero from './components/Hero/Hero';
 import TopAlbum from './components/topAlbum/TopAlbum';
 import NewAlbum from './components/newAlbum/NewAlbum';
+import SongsPage from './components/Songs/SongsPage';
+
 
 
 
@@ -14,6 +16,7 @@ const Layout = () => {
       <Hero />
       <TopAlbum />
       <NewAlbum />
+      <SongsPage />
     </div>
   )
 }

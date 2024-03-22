@@ -92,56 +92,6 @@
 
 
 
-// import React, { useEffect, useState } from "react";
-// import { topAlbumData } from "../AxiosData/AxiosData";
-// import Box from "@mui/material/Box";
-// import Card from "../Card/Card";
-// import "./TopAlbum.css";
-// import Carousel from "../Carousel/Carousel"; // Import the Carousel component
-
-// const TopAlbum = () => {
-//   const [albumData, setAlbumData] = useState([]);
-//   const [collapseView, setCollapseView] = useState(true);
-
-//   useEffect(() => {
-//     const loadHandler = async () => {
-//       try {
-//         const res = await topAlbumData();
-//         setAlbumData(res);
-//       } catch (error) {
-//         console.log("Error fetching top album data:", error);
-//       }
-//     };
-//     loadHandler();
-//   }, []);
-
-//   const handleOnClick = () => {
-//     setCollapseView(!collapseView);
-//   };
-
-//   return (
-//     <Box className="topAlbum">
-//       <div className="topAlbum_static">
-//         <h3>Top Albums</h3>
-//         <button onClick={handleOnClick}>
-//           {collapseView ? `Show all` : `Collapse`}
-//         </button>
-//       </div>
-//       {!collapseView && ( // Render Carousel only if collapseView is false
-//         <Carousel
-//           data={albumData} // Pass album data as prop to Carousel
-//           component={(albumItem) => (
-//             <Card data={albumItem} type="normal" />
-//           )} // Pass Card component as component prop to Carousel
-//         />
-//       )}
-//     </Box>
-//   );
-// };
-
-// export default TopAlbum;
-
-
 import React, { useEffect, useState } from "react";
 import { topAlbumData } from "../AxiosData/AxiosData";
 import Box from "@mui/material/Box";
